@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="_1PromotionalProducts.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="frame">
+        <div id="banner">
+            <a href="Default.aspx">
+                <img style="border-width: 0px; margin-left: 610px; margin-top: 75px;" src="images/1pp.gif" /></a>
+        </div>
+        <table style="width: 100%;" cellspacing="0" cellpadding="0">
+            <tr>
+                <td id="leftnav">
+                    <div style="margin-left: 25px;">
+                        <div id="catlist1title" style="font-size: 25px; margin-top: 75px; margin-left: 20px;
+                            color: #ffffff;" runat="server">
+                            Our Catalogs</div>
+                        <div style="text-align: left; margin-left: 25px;">
+                            <asp:Button ID="btnEditCatList1" CausesValidation="false" runat="server" Text="Edit List"
+                                OnClick="btnEditCatList1_Click" />
+                        </div>
+                        <div id="catlist1" style="font-size: 15px;" runat="server">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id="navigation">
+                        <a href="Default.aspx">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AboutUs.aspx">About
+                            Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ContactUs.aspx">Contact Us</a>
+                    </div>
+                    <div id="maincontent">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div style="height: 75px; font-size: 18px; padding-top: 25px; font-family: Arial;
+                        border: solid 0px #ff0000;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align: left; vertical-align: top; padding-left: 75px;">
+                                    <%--<a href="Blog.aspx">Our Blog</a>--%>
+                                </td>
+                                <td style="text-align: right; vertical-align: top;">
+                                    <%--<a href="CapabilityStatement.aspx">Capability Statement</a>--%>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td id="rightcolumn">
+                    <div style="margin-right: 40px;">
+                        <div id="catlist2title" style="font-size: 25px; margin-top: 75px; margin-right: 20px;
+                            color: #ffffff;" runat="server">
+                            Our Catalogs</div>
+                        <div style="text-align: right; margin-right: 25px;">
+                            <asp:Button ID="btnEditCatList2" CausesValidation="false" runat="server" Text="Edit List"
+                                OnClick="btnEditCatList2_Click" />
+                        </div>
+                        <div id="catlist2" style="font-size: 15px;" runat="server">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="footer">
+            <table style="width: 60%; margin: auto;" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <%--<div style="width: 215px; border: solid 3px #7F79E6; padding: 5px; background-color: #ffffff;
+                            margin-top: 5px;">
+                            <a href="http://www.chevtek.com">
+                                <img border="0" src="http://www.codetunnel.com/content/images/createdby.png" /></a>
+                        </div>--%>
+                    </td>
+                    <td style="text-align: right;">
+                        <asp:ImageButton ID="btnShowLogin" CausesValidation="false" ImageUrl="images/admin.gif"
+                            runat="server" OnClick="btnShowLogin_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;" colspan="2">
+                        <div id="loginviewer" runat="server">
+                            <div id="logincontrols" style="border: solid 1px #000000; background-color: #000055;
+                                padding: 3px; color: #ffffff; text-align: center; width: 350px; margin-left: auto;"
+                                runat="server">
+                                <asp:Panel ID="panel1" DefaultButton="btnLogin" runat="server">
+                                    U:&nbsp;<asp:TextBox ID="tbxUsername" Width="100px" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;P:&nbsp;<asp:TextBox
+                                        ID="tbxPassword" TextMode="Password" Width="100px" runat="server"></asp:TextBox>&nbsp;&nbsp;&nbsp;<asp:Button
+                                            ID="btnLogin" runat="server" CausesValidation="false" Text="Login" OnClick="btnLogin_Click" /><br />
+                                    <asp:CustomValidator ID="CustomValidator1" ControlToValidate="tbxPassword" Display="Dynamic"
+                                        runat="server" ErrorMessage="* Invalid Username/Password"></asp:CustomValidator>
+                                </asp:Panel>
+                            </div>
+                            <div id="loggedincontrols" style="border: solid 1px #000000; background-color: #000055;
+                                padding: 3px; color: #ffffff; text-align: center; width: 350px; margin-left: auto;"
+                                runat="server">
+                                <a href="ChangePassword.aspx">Change Password</a>&nbsp;&nbsp;&nbsp;<asp:LoginStatus
+                                    ID="LoginStatus1" runat="server" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
