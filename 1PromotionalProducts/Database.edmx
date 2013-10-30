@@ -4,10 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="PPModelStoreContainer">
-          <EntitySet Name="Catalogs" EntityType="PPModel.Store.Catalogs" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Variables" EntityType="PPModel.Store.Variables" store:Type="Tables" Schema="dbo" />
+      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Catalogs" EntityType="Model.Store.Catalogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Variables" EntityType="Model.Store.Variables" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Catalogs">
           <Key>
@@ -27,13 +27,14 @@
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="75" />
           <Property Name="Value" Type="nvarchar(max)" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Catalogs" EntityType="PPModel.Catalog" />
-          <EntitySet Name="Variables" EntityType="PPModel.Variable" />
+          <EntitySet Name="Catalogs" EntityType="Model.Catalog" />
+          <EntitySet Name="Variables" EntityType="Model.Variable" />
         </EntityContainer>
         <EntityType Name="Catalog">
           <Key>
@@ -44,38 +45,38 @@
           <Property Name="URL" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Sleave" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
-          <Property Type="Boolean" Name="ShowDescription" Nullable="false" />
+          <Property Name="ShowDescription" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Variable">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Value" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="75" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PPModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Catalogs">
-            <EntityTypeMapping TypeName="PPModel.Catalog">
+            <EntityTypeMapping TypeName="Model.Catalog">
               <MappingFragment StoreEntitySet="Catalogs">
-                <ScalarProperty Name="ShowDescription" ColumnName="ShowDescription" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Sleave" ColumnName="Sleave" />
+                <ScalarProperty Name="ShowDescription" ColumnName="ShowDescription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Variables">
-            <EntityTypeMapping TypeName="PPModel.Variable">
+            <EntityTypeMapping TypeName="Model.Variable">
               <MappingFragment StoreEntitySet="Variables">
-                <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -95,6 +96,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
