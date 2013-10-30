@@ -169,7 +169,7 @@ namespace _1PromotionalProducts
                         Sleave = "Left",
                         ShowDescription = cbxShowDescription1.Checked
                     };
-                    db.Catalogs.AddObject(newCatalog);
+                    db.Catalogs.Add(newCatalog);
                     lbxCatalogs1.Items.Add(tbxCatalogName1.Text);
                 }
                 else
@@ -179,7 +179,7 @@ namespace _1PromotionalProducts
                         int iIndex = lbxCatalogs1.SelectedIndex;
                         lbxCatalogs1.Items.RemoveAt(iIndex);
                         var catalog = db.Catalogs.Single(x => x.Name == tbxCatalogName1.Text);
-                        db.Catalogs.DeleteObject(catalog);
+                        db.Catalogs.Remove(catalog);
                     }
                     else
                     {
@@ -207,7 +207,7 @@ namespace _1PromotionalProducts
                         Sleave = "Right",
                         ShowDescription = cbxShowDescription2.Checked
                     };
-                    db.Catalogs.AddObject(newCatalog);
+                    db.Catalogs.Add(newCatalog);
                     lbxCatalogs1.Items.Add(tbxCatalogName2.Text);
                 }
                 else
@@ -217,7 +217,7 @@ namespace _1PromotionalProducts
                         int iIndex = lbxCatalogs2.SelectedIndex;
                         lbxCatalogs2.Items.RemoveAt(iIndex);
                         var catalog = db.Catalogs.Single(x => x.Name == tbxCatalogName2.Text);
-                        db.Catalogs.DeleteObject(catalog);
+                        db.Catalogs.Remove(catalog);
                     }
                     else
                     {

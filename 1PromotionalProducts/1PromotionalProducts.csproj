@@ -48,7 +48,11 @@
     <Reference Include="CKFinder">
       <HintPath>..\packages\CKFinder.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.Serialization" />
@@ -898,6 +902,9 @@
     <Compile Include="Catalog.aspx.designer.cs">
       <DependentUpon>Catalog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Catalog.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -911,6 +918,16 @@
     </Compile>
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Database.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -982,23 +999,38 @@
     <Compile Include="Special.aspx.designer.cs">
       <DependentUpon>Special.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Variable.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="2009-Eco-Catalog.pdf" />
     <None Include="ckeditor\.htaccess" />
     <None Include="ckfinder\userfiles\.htaccess" />
+    <Content Include="packages.config" />
+    <Content Include="MasterPage.Master" />
     <EntityDeploy Include="Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Database.edmx.diagram">
       <DependentUpon>Database.edmx</DependentUpon>
     </Content>
-    <Content Include="packages.config" />
-    <Content Include="MasterPage.Master" />
+    <Content Include="Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\AWS-Live.pubxml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
